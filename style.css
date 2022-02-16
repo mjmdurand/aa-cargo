@@ -1,0 +1,194 @@
+  #myProgress {
+    width: 100%;
+    background-color: #ddd;
+    height: 30px;
+  }
+
+  #progressBar p {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-bottom: 0px;
+  }
+
+  #myBar {
+    text-align: center;
+    color: white;
+  }
+
+  #leavingTime {
+    font-weight: bold;
+    width: 100%;
+    text-align: right;
+    padding-bottom: 10px;
+    font-size: 13pt;
+  }
+
+  #movingInformations {
+    font-weight: bold;
+  }
+
+
+  #movingInformations {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  #movingInformations li {
+    display: inline-block;
+  }
+
+  #departureTimeProgress {
+    width: 49%;
+    text-align: left;
+  }
+
+  #arrivalTimeProgress {
+    width: 49%;
+    text-align: right;
+  }
+
+  #currentShipLocation {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    padding: 0px 10px 0px 10px;
+    margin: 10px;
+
+  }
+
+  #currentShipLocation h2 {
+    text-align: center;
+  }
+
+
+  #serverName {
+    text-align: center;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    padding: 10px;
+    margin: 10px;
+  }
+
+
+  #nextArrivals {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  #progressBar {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    padding: 5px 0px 0px 0px;
+    margin: 10px;
+
+  }
+
+
+
+
+  #currentLoop div {
+    display: inline-block;
+  }
+
+  #currentArrivalTime {
+    width: 49%;
+  }
+
+  #currentDepartureTime {
+    width: 49%;
+  }
+
+  #nextLoop div {
+    display: inline-block;
+  }
+
+  #nextArrivalTime {
+    width: 49%;
+  }
+
+  #nextDepartureTime {
+    width: 49%;
+  }
+
+  #nextRemainingTimers div {
+    display: inline-block;
+    font-size: 13pt;
+  }
+
+  #nextArrivalSolis {
+    width: 49%;
+  }
+
+  #nextArrivalTwoCrown {
+    width: 49%;
+  }
+
+  #nextArrivalSolisTime {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+
+  }
+
+  #nextArrivalSolisRemainingTime {
+    color: red;
+    width: 49%;
+    text-align: right;
+    font-size: 13pt;
+    font-weight: bold;
+
+  }
+
+  #nextArrivalTwoCrownTime {
+    color: green;
+    text-align: center;
+    margin-top: 10px;
+
+  }
+
+  #nextArrivalTwoCrownRemainingTime {
+    color: green;
+    width: 49%;
+    text-align: right;
+    font-size: 13pt;
+    font-weight: bold;
+  }
+
+  #lastUpdate{
+    font-size: 10pt;
+    font-style: italic;
+    text-align: center;
+    margin-left: 10px;
+  }
+
+  #displayGui{
+    display: block;
+    font-family: sans-serif;
+  }
+
+  #displayTwoCrownTimetable{
+    display:none;
+  }
+
+  #displaySolisTimetable{
+    display: none;
+  }
+
+  #mapDisplay{
+    width: 945px;
+    height: 576px;
+    margin: auto;
+    border: 1px solid black;
+    background-color: #ccc18c;
+
+}
