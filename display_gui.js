@@ -315,8 +315,8 @@ function displayTimers() {
         break;
     }
   
-    if (error == "unset" && russian == 0) { lastUpdate.innerHTML = "Last update : Not set"; statusShip.innerHTML = "Not updated since last maintenance<br>Please share your current timer in the discord server.";}
-    if (error == "unset" && russian == 1) { lastUpdate.innerHTML = "Last update : Not set"; statusShip.innerHTML = "Not updated since last maintenance<br>Please share your current timer in the discord server.";}
+    if (error == "unset" && russian == 0) { lastUpdate.innerHTML = "Last update : Not set"; statusShip.innerHTML = "Not updated since last maintenance<br>Please share your current timer in <a href=\"https://discord.gg/Fhfe98S346\">the discord server</a>.";}
+    if (error == "unset" && russian == 1) { lastUpdate.innerHTML = "Last update : Not set"; statusShip.innerHTML = "Not updated since last maintenance<br>Please share your current timer in <a href=\"https://discord.gg/Fhfe98S346\">the discord server</a>.";}
     else { 
       if (russian == 0) 
       {lastUpdate.innerHTML = "Last update : "+startingDate;}
