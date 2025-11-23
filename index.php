@@ -38,7 +38,7 @@
 <?php 
 try
 {
-	$bdd = new PDO('mysql:host=localhost;dbname=archeageapp', 'archeageapp', '7NrsXnmmkhmT');
+	$bdd = new PDO('mysql:host=localhost;dbname=DATABASE', 'USERNAME', 'PASSWORD');
 }
 catch (Exception $e)
 {
