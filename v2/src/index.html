@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cargo Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png" />
+</head>
+<body>
+    <!-- HEADER -->
+    <header id="app-header">
+        <div id="header-left">
+            <img src="logo.png" id="app-logo" alt="Logo">
+            <span id="app-title">Archeage cargo timer</span>
+        </div>
+
+        <div id="header-right">
+            <label for="server-select">Server :</label>
+            <select id="server-select"></select>
+        </div>
+    </header>
+
+
+    <!-- Bloc info serveur -->
+    <div id="server-info">
+        <div id="current-server">Current server : -</div>
+        <div id="last-update">Last update : -</div>
+    </div>
+
+    <!-- Bloc timer -->
+    <div id="cargo-timer">
+        <h2 id="ship-location">...</h2>
+        <table id="table-main" class="timer-table">
+            <tr>
+                <th>Arrival</th>
+                <th>Departure</th>
+            </tr>
+            <tr>
+                <td id="arr-time">--:--:--</td>
+                <td id="dep-time">--:--:--</td>
+            </tr>
+            <tr>
+                <td id="arr-diff">-</td>
+                <td id="dep-diff">-</td>
+            </tr>
+        </table>
+
+        <div id="progress-bar">
+            <span id="dep-label" class="progress-label">--:--:--</span>
+            <span id="arr-label" class="progress-label">--:--:--</span>
+            <span id="remaining-label" class="progress-label remaining-center">-</span>
+            <div id="progress"></div>
+        </div>
+
+        <table id="table-next" class="timer-table">
+            <tr>
+                <th>Next arrival in Two Crowns</th>
+                <th>Next arrival in Solis</th>
+            </tr>
+            <tr>
+                <td id="next-tc-time">--:--:--</td>
+                <td id="next-solis-time">--:--:--</td>
+            </tr>
+            <tr>
+                <td id="next-tc-diff">-</td>
+                <td id="next-solis-diff">-</td>
+            </tr>
+        </table>
+    </div>
+
+    <canvas id="mapCanvas" width="771" height="470"></canvas>
+
+
+    <script src="script.js"></script>
+    <script src="map.js"></script>
+</body>
+</html>
