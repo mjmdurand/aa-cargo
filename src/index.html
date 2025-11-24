@@ -14,16 +14,24 @@
             <span id="app-title">Archeage Cargo Timer</span>
         </div>
         <div id="header-right">
-            <label for="server-select">Server :</label>
-            <select id="server-select"></select>
+                <a href="https://discord.gg/Fhfe98S346" target="_blank">
+                <img src="discord.png" alt="Discord" id="discord-icon">
+            </a>
         </div>
     </header>
 
-    <main>
+    <main class="main-container">
         <!-- Bloc info serveur -->
         <section id="server-info" class="info-box">
-            <div id="current-server">Current server : -</div>
-            <div id="last-update">Last update : -</div>
+            <div id="server-info-left">
+                <div id="current-server">Current server : -</div>
+                <div id="last-update">Last update : -</div>
+            </div>
+
+            <div id="server-info-right">
+                <label for="server-select"></label>
+                <select id="server-select"></select>
+            </div>
         </section>
 
         <!-- Bloc timer -->
@@ -79,7 +87,9 @@
             </div>
         </section>
     </main>
-
+    <footer id="mapFooter">
+        © 2025 — Takagi3179 / <a href="https://github.com/mjmdurand/aa-cargo" target="_blank">Github repository</a>
+    </footer>
     <!-- SCRIPTS -->
     <script src="script.js"></script>
     <script src="map.js"></script>

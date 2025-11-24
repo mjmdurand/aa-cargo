@@ -42,6 +42,27 @@ body {
     color: #333;
 }
 
+/* Logo Discord dans le header */
+#discord-link {
+    display: flex;
+    align-items: center;
+}
+
+#discord-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 12px; /* espace avec le label */
+    opacity: 0.85;
+    transition: 0.2s ease;
+}
+
+#discord-icon:hover {
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+
+
 #header-right {
     display: flex;
     align-items: center;
@@ -54,19 +75,55 @@ body {
     font-size: 14px;
 }
 
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
 #server-select {
     padding: 6px 10px;
 }
 
 /* --- SERVER INFO --- */
 #server-info {
-    text-align: center;
-    margin: 10px 0 20px 0;
+    position: relative;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
     padding: 20px;
     border: 2px solid black;
     background: white;
     border-radius: 10px;
-    width: 90%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Partie gauche : texte */
+#server-info-left {
+    margin-left: 15px;
+}
+
+/* Partie droite : sélecteur aligné en haut à droite */
+#server-info-right {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#server-info-right label {
+    font-size: 14px;
+}
+
+#server-select {
+    padding: 5px 8px;
+    font-size: 14px;
 }
 
 #current-server {
@@ -89,6 +146,8 @@ body {
     background: white;
     text-align: center;
     transition: border-color 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* --- TIMER & MAP BORDER COLORS --- */
@@ -167,6 +226,9 @@ body {
     background: white;
     overflow: hidden;
     margin-top: 20px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 20px;
 }
 
@@ -201,4 +263,28 @@ body {
     padding: 8px 12px;
     font-size: 14px;
     cursor: pointer;
+}
+
+#mapFooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #ccc;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 0;
+    z-index: 9999;
+}
+
+#mapFooter a {
+    color: #4da6ff; /* bleu clair visible */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#mapFooter a:hover {
+    text-decoration: underline;
+    color: #82c3ff;
 }
