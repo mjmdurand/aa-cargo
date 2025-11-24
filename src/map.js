@@ -17,34 +17,55 @@ const shipPaths = {
     4: [ {x:112,y:359}]
 };
 
+// Variables globales pour garder la dernière position
+window.currentLoop = 1;
+window.currentPosition = 0;
+
+// Redimensionner canvas
+function resizeCanvas() {
+    const containerWidth = window.innerWidth * 0.9; // 90% de la largeur dispo
+    const aspectRatio = 945 / 576;
+
+    canvas.width = containerWidth;
+    canvas.height = containerWidth / aspectRatio;
+
+    drawCurrentFrame();
+}
+
+// Dessiner le bateau
 function drawShip(loop, frame) {
-    // Effacer le canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Dessiner fond
-    ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
-
     const path = shipPaths[loop];
     if (!path || path.length === 0) return;
 
-    // Si c'est un loop docked, on prend toujours la première position
     const pos = (loop === 2 || loop === 4) ? path[0] : path[Math.min(frame, path.length - 1)];
 
+    const scaleX = canvas.width / 945;
+    const scaleY = canvas.height / 576;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
+
     ctx.beginPath();
-    ctx.arc(pos.x, pos.y, shipRadius, 0, 2*Math.PI);
+    ctx.arc(pos.x * scaleX, pos.y * scaleY, shipRadius, 0, 2 * Math.PI);
     ctx.fillStyle = shipColor;
     ctx.fill();
     ctx.closePath();
 }
 
-function updateMap(loop, positionInLoop) {
-    let frame = 0;
-    if (loop === 1 || loop === 3) {
-        // On avance de 1 frame toutes les 5 secondes
-        frame = Math.floor(positionInLoop / 5);
-    }
-    drawShip(loop, frame);
+// Redessiner le frame actuel
+function drawCurrentFrame() {
+    drawShip(window.currentLoop, window.currentPosition);
 }
 
-// Exporte la fonction pour être utilisée depuis script.js
+// Mettre à jour la position depuis script.js
+function updateMap(loop, positionInLoop) {
+    window.currentLoop = loop;
+    window.currentPosition = (loop === 1 || loop === 3) ? Math.floor(positionInLoop / 5) : 0;
+    drawShip(loop, window.currentPosition);
+}
+
+// Listeners
+window.addEventListener("resize", resizeCanvas);
+bgImage.onload = () => resizeCanvas();
+
 window.updateMap = updateMap;
