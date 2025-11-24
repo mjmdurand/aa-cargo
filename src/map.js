@@ -21,9 +21,9 @@ const shipPaths = {
 window.currentLoop = 1;
 window.currentPosition = 0;
 
-// Redimensionner canvas
+// Redimensionner canvas avec taille max
 function resizeCanvas() {
-    const containerWidth = window.innerWidth * 0.9; // 90% de la largeur dispo
+    const containerWidth = Math.min(window.innerWidth * 0.9, 945); // max 945px
     const aspectRatio = 945 / 576;
 
     canvas.width = containerWidth;
@@ -62,6 +62,19 @@ function updateMap(loop, positionInLoop) {
     window.currentLoop = loop;
     window.currentPosition = (loop === 1 || loop === 3) ? Math.floor(positionInLoop / 5) : 0;
     drawShip(loop, window.currentPosition);
+}
+
+function resizeCanvas() {
+    const containerWidth = Math.min(window.innerWidth * 0.9, 945); 
+    const aspectRatio = 945 / 576;
+
+    canvas.width = containerWidth;
+    canvas.height = containerWidth / aspectRatio;
+
+    // Centrer le canvas visuellement
+    canvas.style.margin = "0 auto";
+
+    drawCurrentFrame();
 }
 
 // Listeners
