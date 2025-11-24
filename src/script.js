@@ -72,8 +72,17 @@ fetch("get_servers.php")
             select.appendChild(option);
         });
 
-        currentServer = servers[data[0].id];
-        select.value = data[0].id;
+        // 🔥 Charger serveur sauvegardé
+        const saved = localStorage.getItem("selectedServer");
+
+        if (saved && servers[saved]) {
+            select.value = saved;
+            currentServer = servers[saved];
+        } else {
+            // Sinon fallback sur le premier serveur
+            select.value = data[0].id;
+            currentServer = servers[data[0].id];
+        }
 
         updateServerInfo();
         updateTimer();
@@ -82,7 +91,12 @@ fetch("get_servers.php")
 
 // --- CHANGE SERVER ---
 document.getElementById("server-select").addEventListener("change", e => {
-    currentServer = servers[e.target.value];
+    const selectedId = e.target.value;
+
+    // Sauvegarde dans localStorage
+    localStorage.setItem("selectedServer", selectedId);
+
+    currentServer = servers[selectedId];
     updateServerInfo();
     updateTimer();
 });
@@ -177,9 +191,17 @@ function updateTimer() {
 
     // Labels progress bar
     const remainingLabel = document.getElementById("remaining-label");
-    document.getElementById("dep-label").textContent = depTimeElem.textContent;
-    document.getElementById("arr-label").textContent = arrTimeElem.textContent;
-    remainingLabel.textContent = arrDiffElem.textContent;
+    if (loop === 2 || loop === 4) {
+        // Docked at Solis (2) ou Docked at Two Crowns (4)
+        remainingLabel.textContent = depDiffElem.textContent;
+        document.getElementById("dep-label").textContent = arrTimeElem.textContent;
+        document.getElementById("arr-label").textContent = depTimeElem.textContent;
+    } else {
+        // Sailing → on garde le remaining normal vers l'arrivée
+        remainingLabel.textContent = arrDiffElem.textContent;
+        document.getElementById("dep-label").textContent = depTimeElem.textContent;
+        document.getElementById("arr-label").textContent = arrTimeElem.textContent;
+    }
 
     // Update map
     if (window.updateMap) window.updateMap(loop, posInLoop);
