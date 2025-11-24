@@ -11,66 +11,76 @@
     <header id="app-header">
         <div id="header-left">
             <img src="logo.png" id="app-logo" alt="Logo">
-            <span id="app-title">Archeage cargo timer</span>
+            <span id="app-title">Archeage Cargo Timer</span>
         </div>
-
         <div id="header-right">
             <label for="server-select">Server :</label>
             <select id="server-select"></select>
         </div>
     </header>
 
+    <main>
+        <!-- Bloc info serveur -->
+        <section id="server-info" class="info-box">
+            <div id="current-server">Current server : -</div>
+            <div id="last-update">Last update : -</div>
+        </section>
 
-    <!-- Bloc info serveur -->
-    <div id="server-info">
-        <div id="current-server">Current server : -</div>
-        <div id="last-update">Last update : -</div>
-    </div>
+        <!-- Bloc timer -->
+        <section id="cargo-timer" class="timer-box">
+            <h2 id="ship-location">...</h2>
 
-    <!-- Bloc timer -->
-    <div id="cargo-timer">
-        <h2 id="ship-location">...</h2>
-        <table id="table-main" class="timer-table">
-            <tr>
-                <th>Arrival</th>
-                <th>Departure</th>
-            </tr>
-            <tr>
-                <td id="arr-time">--:--:--</td>
-                <td id="dep-time">--:--:--</td>
-            </tr>
-            <tr>
-                <td id="arr-diff">-</td>
-                <td id="dep-diff">-</td>
-            </tr>
-        </table>
+            <!-- Table principale -->
+            <table id="table-main" class="timer-table">
+                <tr>
+                    <th>Arrival</th>
+                    <th>Departure</th>
+                </tr>
+                <tr>
+                    <td id="arr-time">--:--:--</td>
+                    <td id="dep-time">--:--:--</td>
+                </tr>
+                <tr>
+                    <td id="arr-diff">-</td>
+                    <td id="dep-diff">-</td>
+                </tr>
+            </table>
 
-        <div id="progress-bar">
-            <span id="dep-label" class="progress-label">--:--:--</span>
-            <span id="arr-label" class="progress-label">--:--:--</span>
-            <span id="remaining-label" class="progress-label remaining-center">-</span>
-            <div id="progress"></div>
-        </div>
+            <!-- Barre de progression -->
+            <div id="progress-bar">
+                <span id="dep-label" class="progress-label">--:--:--</span>
+                <span id="arr-label" class="progress-label">--:--:--</span>
+                <span id="remaining-label" class="progress-label remaining-center">-</span>
+                <div id="progress"></div>
+            </div>
 
-        <table id="table-next" class="timer-table">
-            <tr>
-                <th>Next arrival in Two Crowns</th>
-                <th>Next arrival in Solis</th>
-            </tr>
-            <tr>
-                <td id="next-tc-time">--:--:--</td>
-                <td id="next-solis-time">--:--:--</td>
-            </tr>
-            <tr>
-                <td id="next-tc-diff">-</td>
-                <td id="next-solis-diff">-</td>
-            </tr>
-        </table>
-    </div>
+            <!-- Table suivante -->
+            <table id="table-next" class="timer-table">
+                <tr>
+                    <th>Next arrival in Two Crowns</th>
+                    <th>Next arrival in Solis</th>
+                </tr>
+                <tr>
+                    <td id="next-tc-time">--:--:--</td>
+                    <td id="next-solis-time">--:--:--</td>
+                </tr>
+                <tr>
+                    <td id="next-tc-diff">-</td>
+                    <td id="next-solis-diff">-</td>
+                </tr>
+            </table>
+        </section>
 
-    <canvas id="mapCanvas" width="945" height="576"></canvas>
+        <!-- Bloc map -->
+        <section id="map-container" class="timer-box">
+            <button id="toggle-map">Show Live Map</button>
+            <div id="map-wrapper">
+                <canvas id="mapCanvas" width="945" height="576"></canvas>
+            </div>
+        </section>
+    </main>
 
-
+    <!-- SCRIPTS -->
     <script src="script.js"></script>
     <script src="map.js"></script>
 </body>

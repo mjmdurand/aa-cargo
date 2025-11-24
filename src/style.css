@@ -1,3 +1,4 @@
+/* --- GLOBAL --- */
 body {
     margin: 0;
     padding-top: 90px; /* espace pour le header */
@@ -7,141 +8,8 @@ body {
     flex-direction: column;
     align-items: center;
 }
-/* --- Selecteur serveur en haut droite --- */
-#server-select {
-    padding: 5px 8px;
-    font-size: 14px;
-}
 
-/* --- Bloc info serveur --- */
-#server-info {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    width: 90%;
-    padding: 12px 0;
-    border: 2px solid black;
-    background: white;
-    border-radius: 10px;
-}
-
-#current-server {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-#last-update {
-    font-size: 13px;
-    font-style: italic;
-    margin-top: 5px;
-}
-
-/* --- Bloc timer --- */
-#cargo-timer {
-    width: 90%;
-    padding: 20px;
-    border-radius: 12px;
-    border: 3px solid transparent;
-    background: white;
-    text-align: center;
-    transition: border-color 0.3s ease;
-}
-
-/* Bordures dynamiques */
-.timer-blue {
-    border-color: #007bff !important;
-}
-.timer-red {
-    border-color: #dc3545 !important;
-}
-.timer-green {
-    border-color: #28a745 !important;
-}
-
-#line {
-    margin: 6px 0;
-}
-
-/* Progress bar */
-#progress-bar {
-    width: 100%;
-    height: 20px;  /* augmenté */
-    background: #ddd;
-    border-radius: 10px;
-    margin: 10px 0 20px 0;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Progress itself */
-#progress {
-    height: 100%;
-    width: 0%;
-    background: #0d6efd;
-    transition: width 0.3s ease;
-}
-
-/* Labels dans la barre */
-.progress-label {
-    position: absolute;
-    top: 0; /* dans la barre */
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-}
-.remaining-center {
-    position: absolute;
-    top: 2px; /* ou 0 si vous voulez dans la barre */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-}
-#dep-label { 
-    left: 5px; 
-    top: 2px;
-}
-#arr-label { 
-    right: 5px;
-    top: 2px;
-}
-
-
-#progress.yellow {
-    background: #ffc107;
-}
-#progress.red {
-    background: #dc3545;
-}
-.timer-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    vertical-align: auto;
-}
-
-.timer-table th {
-    background: #f8f9fa;
-    padding: 8px 0;
-    border-bottom: 2px solid #ddd;
-    font-size: 16px;
-}
-
-.timer-table td {
-    padding: 6px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 18px;
-}
-
-.remaining {
-    font-size: 13px;
-    font-style: italic;
-    color: #555;
-}
-
-/* ----- HEADER ----- */
+/* --- HEADER --- */
 #app-header {
     position: fixed;
     top: 0;
@@ -181,11 +49,156 @@ body {
     margin-right: 5%;
 }
 
-#header-right label {
+#header-right label,
+#server-select {
     font-size: 14px;
 }
 
 #server-select {
     padding: 6px 10px;
+}
+
+/* --- SERVER INFO --- */
+#server-info {
+    text-align: center;
+    margin: 10px 0 20px 0;
+    padding: 20px;
+    border: 2px solid black;
+    background: white;
+    border-radius: 10px;
+    width: 90%;
+}
+
+#current-server {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#last-update {
+    font-size: 13px;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* --- CARGO TIMER --- */
+#cargo-timer {
+    width: 90%;
+    padding: 20px;
+    border-radius: 12px;
+    border: 3px solid transparent;
+    background: white;
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+/* --- TIMER & MAP BORDER COLORS --- */
+.timer-blue { border-color: #007bff !important; }
+.timer-red { border-color: #dc3545 !important; }
+.timer-green { border-color: #28a745 !important; }
+
+/* --- PROGRESS BAR --- */
+#progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    margin: 10px 0 20px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#progress {
+    height: 100%;
+    width: 0;
+    background: #0d6efd;
+    transition: width 0.3s ease;
+}
+
+#progress.yellow { background: #ffc107; }
+#progress.red { background: #dc3545; }
+
+.progress-label {
+    position: absolute;
+    top: 2px;
     font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.remaining-center {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#dep-label { left: 10px; }
+#arr-label { right: 10px; }
+
+/* --- TABLES --- */
+.timer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 15px 0;
+}
+
+.timer-table th {
+    background: #f8f9fa;
+    padding: 8px 0;
+    border-bottom: 2px solid #ddd;
+    font-size: 16px;
+}
+
+.timer-table td {
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 18px;
+}
+
+.remaining {
+    font-size: 13px;
+    font-style: italic;
+    color: #555;
+}
+
+/* --- MAP --- */
+#map-container {
+    width: 90%;
+    border-radius: 12px;
+    border: 2px solid black;
+    background: white;
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+#map-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 10px auto;
+    overflow: hidden;
+    max-height: 0; /* masqué par défaut */
+    padding: 0;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+#map-wrapper.show {
+    max-height: 600px; /* hauteur approximative du canvas */
+    padding: 20px 0;
+
+}
+
+#mapCanvas {
+    max-width: 945px;   /* largeur maximale */
+    width: 100%;        /* responsive jusqu'à max-width */
+    height: auto;       /* conserve le ratio */
+    display: block;
+    margin: 0 auto;     /* centre le canvas */
+}
+
+/* --- TOGGLE BUTTON --- */
+#toggle-map {
+    display: block;
+    margin: 0 auto 10px auto; /* centrage horizontal + marge en bas */
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
 }
